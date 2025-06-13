@@ -154,8 +154,8 @@ async function openPosition(direction) {
   });
 
   const takeProfitPrice = direction === "long"
-    ? (price * 1.036).toFixed(2)
-    : (price * 0.964).toFixed(2);
+    ? (price * 1.026).toFixed(2)
+    : (price * 0.974).toFixed(2);
 
   await signedRequest("POST", "/fapi/v1/order", {
     symbol: SYMBOL,
