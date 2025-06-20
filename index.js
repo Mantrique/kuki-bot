@@ -11,7 +11,7 @@ const API_KEY = process.env.API_KEY;
 const API_SECRET = process.env.API_SECRET;
 const BASE_URL = "https://fapi.binance.com";
 const SYMBOL = "SOLUSDT";
-const LEVERAGE = 2;
+const LEVERAGE = 5;
 
 // Supabase
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
@@ -154,8 +154,8 @@ async function openPosition(direction) {
   });
 
   const takeProfitPrice = direction === "long"
-    ? (price * 1.026).toFixed(2)
-    : (price * 0.974).toFixed(2);
+    ? (price * 1.05).toFixed(2)
+    : (price * 0.95).toFixed(2);
 
   await signedRequest("POST", "/fapi/v1/order", {
     symbol: SYMBOL,
